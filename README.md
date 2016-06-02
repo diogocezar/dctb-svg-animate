@@ -12,8 +12,8 @@ O código completo está no exemplo: http://codepen.io/origamid/pen/vKEQWX
 1. Selecionar o item que deseja animar. Deve ser um vetor composto por linhas (stroke). Exportar para SVG. No illustrator é só ir em File > Save As > Selecionar SVG.
 
 2. Otimizar o SVG, com isso você vai diminuir o tamanho do svg e ainda transformar linhas em path's.
-  2.1. É fácil otimizar, basta entrar neste link: https://jakearchibald.github.io/svgomg/ e arrastar o arquivo para a tela que o upload será feito.
-  2.2 A única mudança que precisa fazer nas configurações é desmarcar o item Merge paths (No menu vertical que está no canto direito do site). Salve o código gerado e cole direto no seu HTML.
+  1. É fácil otimizar, basta entrar neste link: https://jakearchibald.github.io/svgomg/ e arrastar o arquivo para a tela que o upload será feito.
+  2. A única mudança que precisa fazer nas configurações é desmarcar o item Merge paths (No menu vertical que está no canto direito do site). Salve o código gerado e cole direto no seu HTML.
 3. A animação é feita da seguinte forma:
 
 Existem 2 propriedades no CSS que manipulam o stroke (linha) de cada path (são as partes do seu arquivo) do seu SVG.
