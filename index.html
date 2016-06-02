@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <head>
+    <meta charset="UTF-8">
+    <title>animated-origamid</title>
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+        /*
+        Utiliza o keyframe svg-animate
+        Anima em 4s cada path
+        forwards faz com que a animação termine e matenha o estado final dela (ou seja, o objeto totalmen preenchido)
+        remova o ininite para a animação acontecer apenas uma vez */
+        svg.animate path {
+            animation: svg-animate 4s forwards infinite;
+        }
+        /* Função principal da animação, levar o dashoffset até 0. Nesse caso ele vai do dashoffset que foi definido com jQuery até 0. Por isso o from está vazio. */
+        @keyframes svg-animate {
+            from {}
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        .container {
+            width: 240px;
+            margin: 40px auto;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="45 -176 302 404"><style>.st0{fill:none;stroke:#8844EE;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style><g id="Layer_1"><path class="st0" d="M99-101c0 19.6 89.5 35.5 200 35.5"/><path class="st0" d="M150 154c0-92.3 74.7-167 167-167"/><path class="st0" d="M89-31.5c0 94.5 76.5 171 171 171"/><path class="st0" d="M196.8-124.5v154"/><path class="st0" d="M55.5 29.5H338"/></g></svg>
+        </div>
+        <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+        <script>
+        // Basta adiciona a classe animate ao SVG
+        // Ai você adicionar como quiser, pode ser baseado no scroll, em algum clique ou qualquer outra ação do usuário
+        $('svg').addClass('animate');
+        // Função para determinar o comprimento de cada path
+        $('svg.animate path').each(function(){
+            var comprimento = $(this).get(0).getTotalLength();
+            var comprimentoArredondado = Math.round(comprimento);
+            $(this).attr('stroke-dasharray', comprimentoArredondado);
+            $(this).attr('stroke-dashoffset', comprimentoArredondado);
+        });
+        </script>
+    </body>
+</html>
